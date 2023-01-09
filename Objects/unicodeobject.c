@@ -15294,8 +15294,10 @@ PyUnicode_InternInPlace(PyObject **p)
     if (t != s) {
         Py_INCREF(t);
         Py_SETREF(*p, t);
+        printf("Already Interned %s\n",PyUnicode_AsUTF8(t));
         return;
     }
+    printf("Interning String %s\n",PyUnicode_AsUTF8(t));
     /* The two references in interned are not counted by refcnt.
        The deallocator will take care of this */
     Py_REFCNT(s) -= 2;
