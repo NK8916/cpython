@@ -12789,6 +12789,7 @@ unicode_repr(PyObject *unicode)
             }
         }
     }
+    printf("is_interned:%d\n",PyUnicode_CHECK_INTERNED(unicode));
     /* Closing quote already added at the beginning */
     assert(_PyUnicode_CheckConsistency(repr, 1));
     return repr;
