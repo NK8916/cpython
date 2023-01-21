@@ -3863,11 +3863,11 @@ compiler_compare(struct compiler *c, expr_ty e)
         for (i = 0; i < n; i++) {
             VISIT(c, expr,
                 (expr_ty)asdl_seq_GET(e->v.Compare.comparators, i));
-            ADDOP(c, DUP_TOP);
-            ADDOP(c, ROT_THREE);
+            // ADDOP(c, DUP_TOP);
+            // ADDOP(c, ROT_THREE);
             ADDOP_I(c, COMPARE_OP,
                 cmpop((cmpop_ty)(asdl_seq_GET(e->v.Compare.ops, i))));
-            ADDOP_JABS(c, JUMP_IF_FALSE_OR_POP, cleanup);
+            // ADDOP_JABS(c, JUMP_IF_FALSE_OR_POP, cleanup);
             NEXT_BLOCK(c);
         }
         VISIT(c, expr, (expr_ty)asdl_seq_GET(e->v.Compare.comparators, n));
